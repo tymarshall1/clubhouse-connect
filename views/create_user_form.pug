@@ -1,0 +1,23 @@
+extends layout 
+block content
+    div(class='div-center')
+        form(class="form-width flex-col w-full")
+            h1(class='text-center mb-2 font-lg') Sign-up
+            p(class="mb-2 text-center font-sm") Users who sign up today can take advantage of these free perks!  
+            ul(class="mb-2 bold")
+                li Access to all account features. 
+                li Create posts.
+                li Become part of the family!
+            label(for="email") Email
+            input(type="email", required, placeholder="John@gmail.com", id="email", name="email", class="mb-xs")
+            label(for="password") Password
+            input(type="password", required, id="password", name="password", class="mb-xs") 
+            label(for="password") Confirm Password
+            input(type="password", required, id="password", name="password", class="mb-xs") 
+            label(for="firstName") First Name
+            input(type="text", required, placeholder="John", id="firstName", name="firstName", class="mb-xs") 
+            label(for="lastName") Last Name
+            input(type="text", required, placeholder="Doe", id="lastName", name="lastName", class="mb-1")
+            p(class="mb-1") Already have an account? Click 
+                a(href="/users/login", class="clr-main") Here 
+            button(class="bg-main") Create Account

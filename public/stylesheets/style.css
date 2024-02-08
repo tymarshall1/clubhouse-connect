@@ -26,7 +26,7 @@ header ul {
 
 header a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -38,11 +38,42 @@ header a {
 
 main {
   flex: 1;
+  padding: 2rem;
 }
 
 footer {
   text-align: center;
   background-color: var(--bg-main);
+  color: white;
+}
+
+form label {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  transition: transform 0.3s ease-in-out;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+  border: 2px solid black;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+}
+
+ul {
+  list-style-position: inside;
 }
 
 .layout-container {
@@ -50,4 +81,103 @@ footer {
   flex-direction: column;
   min-height: inherit;
   gap: 2rem;
+}
+
+/** util classes **/
+
+.form-width {
+  max-width: 25%;
+}
+
+.clr-main {
+  color: var(--bg-main);
+}
+
+.font-lg {
+  font-size: 2.5rem;
+}
+
+.font-md {
+  font-size: 2rem;
+}
+
+.font-sm {
+  font-size: 1.5rem;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.mw-25 {
+  max-width: 25%;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-xs {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-main {
+  background-color: var(--bg-main);
+}
+
+.div-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .form-width {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .form-width {
+    max-width: 75%;
+  }
+}
+
+@media screen and (min-width: 1340px) {
+  .form-width {
+    max-width: 40%;
+  }
 }
