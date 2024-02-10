@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
-    trim: true,
     minLength: 5,
     maxLength: 30,
   },
@@ -13,9 +12,7 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    trim: true,
     minLength: 5,
-    maxLength: 30,
   },
 
   firstName: {
@@ -37,9 +34,16 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    enum: ["member, goldMember, admin"],
+    enum: ["member", "goldMember", "admin"],
     default: "member",
   },
+
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Posts",
+    },
+  ],
 
   joined: {
     type: Date,

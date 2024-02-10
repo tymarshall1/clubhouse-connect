@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 html {
@@ -14,31 +17,44 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 2rem 1rem 1rem;
   background-color: var(--bg-main);
 }
 
 header ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 header a {
   text-decoration: none;
   color: white;
-  font-size: 1.5rem;
   font-weight: 500;
 }
 
+header a:hover {
+  color: black;
+}
+
 .home-nav {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 900;
+  letter-spacing: 0.1rem;
+}
+
+nav ul li a {
+  font-size: 1.4rem;
 }
 
 main {
   flex: 1;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 footer {
@@ -65,6 +81,7 @@ button {
   outline: none;
   border: 2px solid black;
   color: white;
+  font-weight: 200;
 }
 
 button:hover {
@@ -83,7 +100,17 @@ ul {
   gap: 2rem;
 }
 
+.square-border {
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
 /** util classes **/
+
+.error {
+  color: red;
+}
 
 .form-width {
   max-width: 25%;
@@ -103,6 +130,10 @@ ul {
 
 .font-sm {
   font-size: 1.5rem;
+}
+
+.font-xs {
+  font-size: 1rem;
 }
 
 .bold {
