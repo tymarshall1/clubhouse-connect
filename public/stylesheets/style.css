@@ -7,6 +7,10 @@
   font-style: normal;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   min-height: 100vh;
   font-size: 16px;
@@ -29,7 +33,6 @@ header ul {
 }
 
 header a {
-  text-decoration: none;
   color: white;
   font-weight: 500;
 }
@@ -116,13 +119,13 @@ ul {
 }
 
 .gold-hover:hover {
-  color: gold;
+  color: rgb(231, 175, 20);
 }
 
 .create-post-btn {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  right: 1rem;
   background-color: var(--bg-main);
   padding: 1rem 2rem;
   color: white;
@@ -137,7 +140,27 @@ ul {
   transform: scale(1.08);
 }
 
+.post-card {
+  border: 2px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 1rem;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  opacity: 0.5;
+}
+
 /** util classes **/
+
+.text-gold {
+  color: rgb(231, 175, 20);
+}
 
 .error {
   color: red;
@@ -149,6 +172,10 @@ ul {
 
 .clr-main {
   color: var(--bg-main);
+}
+
+.font-xl {
+  font-size: 3rem;
 }
 
 .font-lg {
@@ -165,6 +192,10 @@ ul {
 
 .font-xs {
   font-size: 1rem;
+}
+
+.font-light {
+  font-weight: 200;
 }
 
 .bold {
@@ -224,6 +255,10 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 @media screen and (max-width: 900px) {

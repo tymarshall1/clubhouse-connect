@@ -8,15 +8,14 @@ exports.create_post_get = (req, res) => {
 };
 
 exports.create_post_post = [
-  body("title", " *Title must be between 2 and 30 characters.")
+  body("title", " *Title must be between 2 and 60 characters.")
     .trim()
     .toLowerCase()
-    .isLength({ min: 2, max: 30 })
+    .isLength({ min: 2, max: 60 })
     .escape(),
 
   body("body", " *Body must be at least 5 characters long.")
     .trim()
-    .toLowerCase()
     .isLength({ min: 5 })
     .escape(),
 
@@ -40,15 +39,16 @@ exports.create_post_post = [
       return;
     }
 
+    const userId = res.locals.currentUser._id.toString();
+
     const post = new Post({
       title: req.body.title,
       body: req.body.body,
+      author: userId,
     });
 
     const newPost = await post.save();
-    const user = await User.findById(
-      res.locals.currentUser._id.toString()
-    ).exec();
+    const user = await User.findById(userId).exec();
 
     user.posts.push(newPost._id);
     await user.save();
