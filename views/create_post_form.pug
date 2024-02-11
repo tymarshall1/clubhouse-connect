@@ -1,0 +1,17 @@
+extends layout 
+block content
+    if (currentUser)
+        form(class="form-width flex-col w-full square-border" , method="post")
+            h1(class='text-center mb-2 font-lg') Create Post
+            label(for="email") Title
+                span(class="error font-xs")=titleError
+            input(type="text", required, value=email, placeholder="Yummy Bagels", id="title", name="title", class="mb-xs")
+            label(for="password") Body
+                span(class="error font-xs")=bodyError
+            textarea(cols="30", rows="10", required, id="body", placeholder="I sure do love fresh warm bagels.", name="body", class="mb-xs")
+            button(class="bg-main") Create Post
+    else 
+        h1(class="mb-2 text-center") Please make an account or login to create a post.
+        div(class="flex-col")
+            a(href="/users/create", class="link-btn bg-main mb-1") Create account 
+            a(href="/users/login", class="link-btn bg-main") Login 

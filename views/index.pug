@@ -2,8 +2,9 @@ extends layout
 
 block content
   div(class="div-center")
+    h1(class="text-center mb-2 font-lg") Live Feed
     if (currentUser)
       h1="Hello " + currentUser.fullName
-      a(href="/users/logout") Logout 
+      a(href="/posts/create", class="create-post-btn") Create 
+  
 
-    h1(class="text-center mb-2 font-lg") Live Feed

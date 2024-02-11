@@ -11,14 +11,26 @@ html(lang="en")
   body(class="layout-container")
     header
       a(href="/", class="home-nav bold")  Clubhouse Connect
-      nav
-        ul
-          li
-            a(href="/users/create") Sign-up
-          li
-            a(href="/users/login") Login
-          li
-            a(href="#") Contact
+      if (!currentUser)
+        nav
+          ul
+            li
+              a(href="/users/create") Sign-up
+            li
+              a(href="/users/login") Login
+      else
+        if (currentUser.role === "member") 
+          nav 
+            ul 
+              li 
+                a(href="/users/upgrade", class="gold-hover") Upgrade to Gold
+              li 
+                a(href="/users/logout") Logout
+        else 
+          nav 
+            ul 
+              li 
+                a(href="/users/logout") Logout
     main
       block content
     footer
