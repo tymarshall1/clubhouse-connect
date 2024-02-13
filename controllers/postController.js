@@ -11,13 +11,11 @@ exports.create_post_post = [
   body("title", " *Title must be between 2 and 60 characters.")
     .trim()
     .toLowerCase()
-    .isLength({ min: 2, max: 60 })
-    .escape(),
+    .isLength({ min: 2, max: 60 }),
 
   body("body", " *Body must be at least 5 characters long.")
     .trim()
-    .isLength({ min: 5 })
-    .escape(),
+    .isLength({ min: 5 }),
 
   asyncHandler(async (req, res) => {
     const errors = validationResult(req);
