@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    if (currentUser && currentUser.role === "admin")
+        form(method="post")
+            h1(class="text-center") Are you sure you wish to delete?
+            div(class="post-card mt-2")
+                h1(class="mb-2 capitalize font-md")=post.title
+                p(class="font-xs")=post.body
+                div(class='delete_btns mb-2')
+                    a(href="/", class="link-btn bg-main") Cancel 
+                    button(class="link-btn bg-danger", type="submit") Delete 
+                div(class="post-details")
+                    p(class="capitalize")="-" + post.author.fullName
+                    p()=post.formattedDate
+
+    else
+        h1 You don't have access to this page.

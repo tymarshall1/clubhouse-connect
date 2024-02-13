@@ -55,3 +55,26 @@ exports.create_post_post = [
     res.redirect("/");
   }),
 ];
+
+exports.delete_post_get = asyncHandler(async (req, res) => {
+  const postId = req.params.id;
+  const post = await Post.findById(postId).populate("author").exec();
+  res.render("confirm_delete", { post });
+});
+
+exports.delete_post_post = asyncHandler(async (req, res) => {
+  // if (res.locals.currentUser.role === "admin") {
+  const post = await Post.findById(req.params.id).populate("author").exec();
+  const userId = post.author._id.toString();
+  const postIdToRemove = post._id.toString();
+
+  await User.findOneAndUpdate(
+    { _id: userId },
+    { $pull: { posts: postIdToRemove } },
+    { new: true }
+  );
+
+  await Post.deleteOne({ _id: post._id.toString() });
+
+  res.redirect("/");
+});

@@ -1,0 +1,16 @@
+extends layout 
+block content
+    if (currentUser)
+        if (currentUser.role !== "member")
+            h1 You already have goldmember status or higher!
+        else    
+            form(method="post",class="form-width flex-col w-full square-border")
+                p(class="error")=error
+                label(for="goldmemberCode") Gold member access code
+                input(type="text", class="mb-1", required, name="goldmemberCode", id="goldmemberCode", placeholder="Enter Code")
+                button(class="bg-main") Submit 
+    else
+        h1(class="mb-2 text-center") Please make an account or login.
+        div(class="flex-col")
+            a(href="/users/create", class="link-btn bg-main mb-1") Create account 
+            a(href="/users/login", class="link-btn bg-main") Login 

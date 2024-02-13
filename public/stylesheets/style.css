@@ -122,6 +122,14 @@ ul {
   color: rgb(231, 175, 20);
 }
 
+.delete_btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 .create-post-btn {
   position: fixed;
   bottom: 2rem;
@@ -133,17 +141,19 @@ ul {
   border-radius: 1rem;
   font-weight: 400;
   text-decoration: none;
-  transition: transform 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.9;
 }
 
 .create-post-btn:hover {
-  transform: scale(1.08);
+  opacity: 1;
 }
 
 .post-card {
   border: 2px solid black;
   border-radius: 1rem;
   padding: 2rem;
+  min-width: 300px;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 1rem;
@@ -156,7 +166,20 @@ ul {
   opacity: 0.5;
 }
 
+.post-title {
+  display: flex;
+  justify-content: space-between;
+}
+
 /** util classes **/
+
+.pl-2 {
+  padding-left: 2rem;
+}
+
+.bg-danger {
+  background-color: red;
+}
 
 .text-gold {
   color: rgb(231, 175, 20);

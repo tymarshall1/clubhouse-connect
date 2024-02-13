@@ -12,4 +12,8 @@ router.post("/login", userController.user_login_post);
 
 router.get("/logout", userController.user_logout_get);
 
+router.get("/upgrade-gold/", userController.user_upgrade_gold_get);
+
+router.post("/upgrade-gold/", userController.user_upgrade_gold_post);
+
 module.exports = router;

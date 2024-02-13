@@ -141,3 +141,28 @@ exports.user_logout_get = (req, res) => {
     res.redirect("/");
   });
 };
+
+exports.user_upgrade_gold_get = (req, res) => {
+  res.render("upgrade_gold_form");
+};
+
+exports.user_upgrade_gold_post = [
+  body("goldmemberCode").notEmpty().trim().escape(),
+
+  asyncHandler(async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.render("upgrade_gold_form", { error: "Incorrect code" });
+      return;
+    }
+
+    const goldCode = "admin";
+    if (req.body.goldmemberCode === goldCode) {
+      await User.updateOne(
+        { _id: res.locals.currentUser._id.toString() },
+        { role: "goldMember" }
+      );
+      res.redirect("/");
+    } else res.render("upgrade_gold_form", { error: "Incorrect code" });
+  }),
+];

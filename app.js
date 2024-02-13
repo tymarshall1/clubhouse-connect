@@ -33,7 +33,6 @@ passport.use(
     { usernameField: "email" },
     async (email, password, done) => {
       try {
-        console.log("TEST");
         const user = await User.findOne({ email: email });
         if (!user) {
           return done(null, false, {
