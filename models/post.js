@@ -28,9 +28,9 @@ const postSchema = new mongoose.Schema({
 });
 
 postSchema.virtual("formattedDate").get(function () {
-  return DateTime.fromJSDate(this.created).toLocaleString(
-    DateTime.DATETIME_SHORT
-  );
+  return DateTime.fromJSDate(this.created, {
+    zone: "America/New_York",
+  }).toLocaleString(DateTime.DATETIME_SHORT);
 });
 
 module.exports = mongoose.model("Posts", postSchema);

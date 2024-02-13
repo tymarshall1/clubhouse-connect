@@ -61,7 +61,6 @@ exports.delete_post_get = asyncHandler(async (req, res) => {
 });
 
 exports.delete_post_post = asyncHandler(async (req, res) => {
-  // if (res.locals.currentUser.role === "admin") {
   const post = await Post.findById(req.params.id).populate("author").exec();
   const userId = post.author._id.toString();
   const postIdToRemove = post._id.toString();
